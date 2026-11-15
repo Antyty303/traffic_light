@@ -59,8 +59,8 @@ module traffic_light_top #(
 		.units (units)
 	);
 
-	seven_seg_decoder dec0 (.bin(units), .seg(HEX0));
-	seven_seg_decoder dec1 (.bin(tens), .seg(HEX1));
+	seven_seg_decoder dec0 (.dec(units), .seg(HEX0));
+	seven_seg_decoder dec1 (.dec(tens), .seg(HEX1));
 	assign HEX2 = ~7'b0000000;
 	assign HEX3 = ~7'b0000000;
 	

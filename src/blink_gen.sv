@@ -15,7 +15,7 @@ module blink_gen #(parameter int DIV_LIMIT = 12_500_000)
 	);
 	
 	always_ff @(posedge clk or negedge rst_n) begin
-		if (!rst_n) blink <= 0'b0;
+		if (!rst_n) blink <= 1'b0;
 		else if (tick) blink <= ~blink;
 	end
 endmodule

@@ -7,7 +7,7 @@ module phase_timer #(
 	input logic clk,
 	input logic rst_n,
 	output logic timer_done,
-	output logic [$clog2(SECOND+1)-1:0] time_left
+	output logic [$clog2(SECONDS+1)-1:0] time_left
 );
 	logic tick_1s;
 	
@@ -19,7 +19,7 @@ module phase_timer #(
 
 	always_ff @(posedge clk or negedge rst_n) begin
 		if (!rst_n) begin
-			time_left <= SECOND;
+			time_left <= SECONDS;
 			timer_done <= 1'b0;
 		end else begin
 			timer_done <= 1'b0;

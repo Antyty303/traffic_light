@@ -85,9 +85,9 @@ module traffic_light_fsm #(
 		endcase	
 	end
 	 
-	assign green_rst_n = rst_n && (state_t == GREEN);
-	assign yellow_rst_n = rst_n && (state_t == YELLOW);
-	assign ped_rst_n = rst_n && (state_t == PED);
+	assign green_rst_n = rst_n && (state == GREEN);
+	assign yellow_rst_n = rst_n && (state == YELLOW);
+	assign ped_rst_n = rst_n && (state == PED);
 	 
 	always_comb begin
 		cars_lights = 3'b000;
