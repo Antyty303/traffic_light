@@ -1,0 +1,14 @@
+*.bak
+
+db/
+incremental_db/
+output_files/
+simulation/
+
+*.qws
+*.rpt
+qar_info.json
+
+*.vcd
+obj_dir/
+build/
