@@ -2,12 +2,12 @@
 
 module traffic_light_fsm #(
 	parameter int DIV_LIMIT_1S = 50_000_000,
-	parameter int GREEN_SECONDS = 12,
+	parameter int GREEN_SECONDS  = 12,
 	parameter int YELLOW_SECONDS = 3,
-	parameter int PED_SECONDS = 10,
+	parameter int PED_SECONDS    = 10,
 	parameter int MAX_TIME	= (GREEN_SECONDS > YELLOW_SECONDS)
-										? ((GREEN_SECONDS > PED_SECONDS) ? GREEN_SECONDS : PED_SECONDS) 
-										: ((YELLOW_SECONDS > PED_SECONDS) ? YELLOW_SECONDS : PED_SECONDS),
+									? ((GREEN_SECONDS > PED_SECONDS) ? GREEN_SECONDS : PED_SECONDS) 
+									: ((YELLOW_SECONDS > PED_SECONDS) ? YELLOW_SECONDS : PED_SECONDS),
 	parameter int TIME_W = (MAX_TIME <= 0) ? 1 : $clog2(MAX_TIME + 1)
 ) (
 	input logic clk,
