@@ -170,4 +170,20 @@ module baseline_c5gx(
 
 );
 
+	traffic_light_top #(
+		.DIV_LIMIT_1S (50_000_000),
+		.GREEN_SECONDS(12),
+		.YELLOW_SECONDS(3),
+		.PED_SECONDS  (10)
+	) ( 
+		.CLOCK_50(CLOCK_50), 
+		.KEY(KEY[1:0]),
+		.LEDR(LEDR[2:0]),
+		.LEDG(LEDG[1:0]),
+		.HEX0(HEX0),
+		.HEX1(HEX1),
+		.HEX2(HEX2),
+		.HEX3(HEX3),
+	);
+
 endmodule
