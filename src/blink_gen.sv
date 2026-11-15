@@ -11,7 +11,7 @@ module blink_gen #(parameter int DIV_LIMIT = 12_500_000)
 	clk_divider #(.DIV_LIMIT(DIV_LIMIT)) u_clk_div (
 		.clk(clk),
 		.rst_n(rst_n),
-		,tick(tick)
+		.tick(tick)
 	);
 	
 	always_ff @(posedge clk or negedge rst_n) begin
