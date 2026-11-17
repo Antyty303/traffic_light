@@ -20,6 +20,9 @@ verilate(Vtb_traffic_light
     VERILATOR_ARGS 
 	--public-flat-rw
 	-GDIV_LIMIT_1S=20
+	-Wno-PINMISSING
+	-Wno-WIDTHTRUNC
+	-Wno-WIDTHEXPAND
 )
 
 target_link_libraries(Vtb_traffic_light PRIVATE gtest gtest_main)
