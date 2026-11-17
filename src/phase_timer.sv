@@ -18,15 +18,12 @@ module phase_timer #(
 	);
 
 	always_ff @(posedge clk or negedge rst_n) begin
-		if (!rst_n) begin
+		if (!rst_n)
 			time_left <= SECONDS;
-			timer_done <= 1'b0;
-		end else begin
-			timer_done <= 1'b0;
-			if (tick_1s && (time_left > 0)) begin
-				time_left <= time_left - 1'b1;
-				if (time_left == 1) timer_done <= 1'b1;
-			end
-		end
+		else if (tick_1s && (time_left > 0))
+			time_left <= time_left - 1'b1;
 	end
+	
+	assign timer_done = tick_1s && (time_left == 1);
+	
 endmodule

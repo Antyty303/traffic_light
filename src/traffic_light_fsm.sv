@@ -73,15 +73,17 @@ module traffic_light_fsm #(
 	always_comb begin
 		next_state = state;
 		case (state)
-			GREEN: begin
-				if (green_left == YELLOW_TRIG)
+			GREEN: 
+				if (green_left == YELLOW_TRIG || btn_ped)
 					next_state = YELLOW;
-				else if (btn_ped)
-					next_state = YELLOW;
-			end
-			YELLOW: if (yellow_done) next_state = PED;
-			PED: if (ped_done) next_state = GREEN;
-         default: next_state = GREEN;
+			YELLOW: 
+				if (yellow_done) 
+					next_state = PED;
+			PED: 
+				if (ped_done) 
+					next_state = GREEN;
+         default: 
+				next_state = GREEN;
 		endcase	
 	end
 	 
