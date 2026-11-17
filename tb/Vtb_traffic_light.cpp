@@ -4,8 +4,7 @@
 #include "verilated_vcd_c.h"
 
 #include "Vtraffic_light_top.h"
-#include "Vtraffic_light_top_traffic_light_top.h"
-#include "Vtraffic_light_top_traffic_light_fsm.h"
+#include "Vtraffic_light_top___024root.h"
 
 constexpr uint8_t ST_GREEN = 0b00;
 constexpr uint8_t ST_YELLOW = 0b01;
@@ -65,10 +64,10 @@ protected:
 
     //геттеры для чтения внутренних сигналов tested_u
     uint8_t get_state() {
-        return tested_u->traffic_light_top->fsm_inst->fsm_state;
+        return tested_u->rootp->traffic_light_top__DOT__fsm_inst__DOT__fsm_state;
     }
     uint8_t get_time_left() {
-        return tested_u->traffic_light_top->time_left;
+        return tested_u->rootp->traffic_light_top__DOT__time_left;
     }
 
     void check_outputs() {
