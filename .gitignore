@@ -1,15 +1,37 @@
-*.bak
+#ModelSim
+work/
+transcript
+vsim.wlf
+modelsim.ini
+*.mpf
+*.mti
+*.vstf
 
+#Quartus
 db/
 incremental_db/
 output_files/
 simulation/
+greybox_tmp/
 
+*.bak
 *.qws
 *.qdf
-*.rpt
 qar_info.json
 
+*.rpt
+*.summary
+*.smsg
+*.pin
+*.done
+*.jdi
+*.sld
+*.sopcinfo
+*.sof
+*.pof
+*.jic
+
+#Verilator
 *.vcd
 obj_dir/
 build/
