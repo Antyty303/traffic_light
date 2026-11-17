@@ -113,7 +113,7 @@ TEST_F(TrafficLightTest, FullCycleAndPedestrianButton) {
     check_outputs();
 
     wait_until([&]() { return get_state() == ST_GREEN && get_time_left() == 12; },
-        1000, "Waiting for time_left == 12 in GREEN state")");
+        1000, "Waiting for time_left == 12 in GREEN state");
 
     press_ped();
     tick(2);
