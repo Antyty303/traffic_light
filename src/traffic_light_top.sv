@@ -6,7 +6,7 @@
 //при GREEN_SEC < YELLOW_SEC что угодно. Если жёлтый после обрезания всё ещё дольше, то зелёный свет будет переключаться только  по кнопке
 module traffic_light_top #(
 	parameter int DIV_LIMIT_1S = 50_000_000,
-	parameter int GREEN_SECONDS  = 12,
+	parameter int GREEN_SECONDS  = 15,
 	parameter int YELLOW_SECONDS = 3,
 	parameter int PED_SECONDS    = 10,
 	parameter int MAX_TIME = (GREEN_SECONDS > YELLOW_SECONDS)
@@ -21,7 +21,8 @@ module traffic_light_top #(
 	output logic [6:0] HEX0, // единицы
 	output logic [6:0] HEX1, // десятки
 	output logic [6:0] HEX2, // зануляем
-	output logic [6:0] HEX3  //
+	output logic [6:0] HEX3,  //
+	output logic [1:0] debug_state
 );
 	logic rst_n;
 	logic btn_ped;
@@ -52,7 +53,8 @@ module traffic_light_top #(
 
 	assign LEDR = cars_lights;
 	assign LEDG = ped_lights;
-
+	assign debug_state = fsm_state;
+	
 	bin_to_bcd #(.BIN_W(TIME_W)) u_bcd (
 		.bin (time_left),
 		.tens (tens),

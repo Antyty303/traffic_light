@@ -183,7 +183,7 @@ module baseline_c5gx(
 		.HEX0(HEX0),
 		.HEX1(HEX1),
 		.HEX2(HEX2),
-		.HEX3(HEX3),
+		.HEX3(HEX3)
 	);
 
 endmodule

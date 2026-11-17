@@ -2,7 +2,7 @@
 
 module traffic_light_fsm #(
 	parameter int DIV_LIMIT_1S = 50_000_000,
-	parameter int GREEN_SECONDS  = 12,
+	parameter int GREEN_SECONDS  = 15,
 	parameter int YELLOW_SECONDS = 3,
 	parameter int PED_SECONDS    = 10,
 	parameter int MAX_TIME	= (GREEN_SECONDS > YELLOW_SECONDS)
