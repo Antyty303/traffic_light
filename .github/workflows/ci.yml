@@ -1,0 +1,39 @@
+name: Verilator CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y verilator cmake build-essential
+
+      - name: Configure CMake
+        run: cmake -B build -DCMAKE_BUILD_TYPE=Release
+
+      - name: Build tests
+        run: cmake --build build -j$(nproc)
+
+      - name: Run GoogleTest
+        run: cd build && ./Vtb_traffic_light --gtest_color=yes
+
+      - name: Upload waveform on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: failure-waveform
+          path: build/wave.vcd
+          if-no-files-found: ignore
